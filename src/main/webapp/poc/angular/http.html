@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Angular Example With Scope</title>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<style>
+input.ng-invalid {
+    background-color: lightblue;
+}
+</style>
+</head>
+<body ng-app="myApp">
+
+<div ng-controller="myCtrl">
+<ul>
+<li ng-repeat="x in content">{{ x.Name + ', ' + x.Country }}</li>
+</ul>
+<p>Data : {{content}}</p>
+<p>Status : {{statuscode}}</p>
+<p>StatusText : {{statusText}}</p>
+</div>
+
+<script>
+var app = angular.module('myApp', []);
+
+app.controller('myCtrl', function($scope, $http) {
+    $http.get("data.jsp").then(function (response) {
+        $scope.content = response.data.records;
+        $scope.statuscode = response.status;
+        $scope.statusText = response.statusText;
+        $scope.httpHearder = response.headers;
+    }, function(response){
+        $scope.content = "Something went wrong";
+    });
+    
+});
+
+
+
+</script>
+
+</body>
+</html>

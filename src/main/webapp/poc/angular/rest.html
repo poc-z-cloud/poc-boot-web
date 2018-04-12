@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Angular Example With Scope</title>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<style>
+input.ng-invalid {
+    background-color: lightblue;
+}
+</style>
+</head>
+<body ng-app="myApp">
+
+<div ng-controller="myCtrl">
+<ul>
+<li ng-repeat="x in contactList">{{ x.name + ', ' + x.phoneNumber }}</li>
+</ul>
+
+<p>{{errorMessage}}</p>
+</div>
+
+<script>
+var app = angular.module('myApp', []);
+
+app.controller('myCtrl', function($scope, $http) {
+    $http.get("/web-poc/mvc/rest/contact/list").then(function (response) {
+        $scope.contactList = response.data;
+        $scope.statuscode = response.status;
+        $scope.statustext = response.statustext;
+    }, function(response){
+        $scope.errorMessage = "Something went wrong";
+    });
+    
+});
+
+
+
+</script>
+
+</body>
+</html>

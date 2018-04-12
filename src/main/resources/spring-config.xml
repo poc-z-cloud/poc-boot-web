@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:mvc="http://www.springframework.org/schema/mvc"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="
+        http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/mvc
+        http://www.springframework.org/schema/mvc/spring-mvc.xsd"> 
+        
+    <!-- Creating H2 server as a bean did not work because the Flyway bean was created earlier and failed on "Connection refused"   -->    
+    <!-- 
+	<bean id="h2Server" class="org.h2.tools.Server"
+		factory-method="createTcpServer" init-method="start" destroy-method="stop">
+		<constructor-arg value="-tcp,-tcpAllowOthers,-tcpPort,9092, -baseDir, P:\JavaEE\workspaces\poc.spring\boot-web-poc\h2\data " />
+	</bean>
+	 -->
+	<bean id="hello" class="poc.Hello">
+	</bean>
+	
+</beans>	

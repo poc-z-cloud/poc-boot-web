@@ -1,0 +1,56 @@
+body {
+	font-size:9pt;
+    
+    background-color: #deebe7;
+    scrollbar-arrow-color: #dfffff;
+    scrollbar-base-color: #dfffff;
+    scrollbar-dark-shadow-color: #d00000;
+    scrollbar-track-color: #dfffff;
+    scrollbar-face-color: #d00000;
+    scrollbar-shadow-color: #dfffff;
+    scrollbar-highlight-color: #dfffff;
+    scrollbar-3d-light-color: #d00000
+	}
+p	{
+	font-size:9pt
+	}
+table {
+	font-size:9pt
+	}
+.listtable {
+    background-color: #000000;
+	font-size:9pt
+	}
+td	{
+    background-color: #deebe7;
+	font-size:9pt
+	}
+thead {
+    background-color: #D0DFD7;
+	background-color: #dfffff;
+	}
+th {
+    background-color: #D0DFD7;
+	font-size:9pt
+	}
+button
+{
+    background-color: #dfffff;
+    BORDER-BOTTOM: navy thin solid;
+    BORDER-LEFT: navy thin solid;
+    BORDER-RIGHT: navy thin solid;
+    BORDER-TOP: navy thin solid
+}
+
+A:link {
+	COLOR: black; TEXT-DECORATION: none
+}
+A:visited {
+	COLOR: black; TEXT-DECORATION: none
+}
+A:active {
+	COLOR: black; TEXT-DECORATION: none
+}
+A:hover {
+	COLOR: blue; TEXT-DECORATION: none
+}

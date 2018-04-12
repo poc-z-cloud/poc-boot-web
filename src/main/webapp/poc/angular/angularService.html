@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Angular Example With Scope</title>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<style>
+input.ng-invalid {
+    background-color: lightblue;
+}
+</style>
+</head>
+<body ng-app="myApp">
+
+<p>The rootScope's favorite color:</p>
+<h1>{{color}}</h1>
+
+<div ng-controller="myCtrl">
+    <p>The scope of the controller's favorite color:</p>
+    <h1>{{color}}</h1>
+<p>The url of the page</p>
+<h1>{{myUrl}}</h1>
+
+<p>The welcome message</p>
+<h1>{{myWelcome}}</h1>
+
+<p>The hex value of 255</p>
+<h1>{{hex}}</h1>
+
+
+<ul>
+<li ng-repeat="x in counts">{{x | myFormat}}</li>
+</ul>
+
+</div>
+
+<p>The rootScope's favorite color is still:</p>
+<h1>{{color}}</h1>
+
+
+<script>
+var app = angular.module('myApp', []);
+app.run(function($rootScope) {
+    $rootScope.color = 'blue';
+});
+
+app.service('hexafy',function(){
+	this.myFunc= function(x){
+		return x.toString(16);
+	}
+	
+});
+
+app.filter('myFormat',['hexafy', function(hexafy) {
+    return function(x) {
+        return hexafy.myFunc(x);
+    };
+}]);
+
+app.controller('myCtrl', function($scope, $location,$http, hexafy) {
+	$scope.counts=[1,16,255];
+    $scope.color = "red";
+    $scope.myUrl = $location.absUrl();
+    $http.get("welcome.htm").then(function (response) {
+        $scope.myWelcome = response.data;
+    });
+    
+    $scope.hex=hexafy.myFunc(255);
+});
+
+
+
+</script>
+
+</body>
+Try it Yourself »
+
+</html>

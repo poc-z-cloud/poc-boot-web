@@ -1,0 +1,8 @@
+
+this link caused eclipse to hang
+mklink /D C:\Jason\workspaces\poc.was7\web-poc\src\main\webapp\poc\angular\dictionary\mp3 e:\mp3
+
+this link works but it might be cleaned
+to delete a link use rmdir, if use del, it will delete all the files it points to.
+make sure unplug the usb before clean workspace, or it might delete all the media files
+mklink /D C:\Jason\workspaces\poc.was7\.metadata\.plugins\org.eclipse.wst.server.core\tmp1\wtpwebapps\web-poc\poc\angular\dictionary\mp3 e:\mp3

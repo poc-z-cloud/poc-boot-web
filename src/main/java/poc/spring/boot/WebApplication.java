@@ -41,7 +41,7 @@ public class WebApplication {
     
     private static void startH2Server(String h2BaseDir) {
     	if (h2BaseDir==null){
-    		h2BaseDir="P:/JavaEE/workspaces/greateq/poc-boot-web/h2/data";
+    		h2BaseDir="C:/Jason/git/poc-boot-web/h2/data";
     	}
     	String[] args={"-tcp","-tcpPort","9092", "-baseDir", h2BaseDir};
     	try{
